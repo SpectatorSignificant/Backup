@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            background-color: #0A0A00;
+        }
+        .input{
+            display: block;
+            position: relative;
+            margin-bottom: 15px;
+            margin-top: 15px;
+            background-color: #EBE8E0;
+            left: 55px;
+            width: 200px;
+            height: 30px;
+            border-radius: 7px;
+        }
+        .form{
+            text-align: center;
+            display: block;
+            width: 310px;
+            position: relative;
+            top: 180px;
+            left: 40vw;
+            font-family: Helvetica, sans-serif;
+            font-weight: 500;
+        }
+        #logo{
+            position: relative;
+            width: 250px;
+        }
+        .login{
+            background-color: #A8BBB0;
+            font-size: large;
+            width: 150px;
+            height: 40px;
+            margin-bottom: 15px;
+        }
+        .signup{
+            background-color: #A8BBB0;
+            font-size: large;
+            width: 300px;
+            height: 40px;
+        }
+
+    </style>
+    <title>Sign Up</title>
+</head>
+<body>
+    <form class="form" action="/" method="post">
+        <img src="images\logo.png" id="logo" alt="logo" width = "180" >
+        <input name="email" type="text" class = "input top" placeholder="Email address" required autofocus>
+        <input name="password" type="password" class = "input" placeholder="Password" required>
+        <!-- <input name="repeatPassword" type="password" class = "input bottom" placeholder="Repeat password" required> -->
+        <button type="submit" class="login">Login</button>
+        <button type="submit" class="signup">Not registered? Sign up Now</button>
+    </form>
+</body>
+</html>

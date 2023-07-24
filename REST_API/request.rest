@@ -1,0 +1,45 @@
+GET http://localhost:3000/
+
+#Host: http://localhost:3000
+
+
+###
+
+GET /authorize
+Host: auth.delta.nitt.edu
+
+{
+    "client_id": "ajaNYGBqSLCeAcvm",
+    "redirect_uri": "http%3A%2F%2Flocalhost%3A3000%2Fauthenticated"
+}
+
+###
+POST /
+Host: localhost:3000
+Content-Type: application/json
+
+{
+    "username": "test"
+}
+
+###
+POST /api/oauth/token HTTP/1.1
+Host: auth.delta.nitt.edu
+Content-Type: application/json
+
+{
+    "client_id": "ajaNYGBqSLCeAcvm",
+    "client_secret": "pp181oQ444EOTGAMeJpc8UmfWWKti1Wx",	
+    "grant_type": "authorization_code",	
+    "code": "ef89c69f3c260dad44f506813e60e8ad64806a0b",
+    "redirect_uri": "http%3A%2F%2Flocalhost%3A3000%2Fauthenticated%2F"
+}
+Request Parameters:
+    Required: true
+    ParamType: Query
+    DataType: String
+###
+
+POST /api/resources/user HTTP/1.1
+Host: auth.delta.nitt.edu
+Authorization: Bearer 02f71255ee95a04d6066de3969bb52f466c90572

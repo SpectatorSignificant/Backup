@@ -1,0 +1,48 @@
+GET http://localhost:3000
+
+###
+
+POST http://localhost:3000
+Content-Type: application/json
+
+{
+"name": "hello2", "password": "hello3"
+}
+
+###
+
+POST http://localhost:3000/home 
+Content-Type: application/json
+
+{
+"name": "hello2", "password": "hello3"
+}
+###
+
+GET auth.delta.nitt.edu/authorize HTTP/1.1
+Host: auth.delta.nitt.edu
+
+Request Parameters:
+    Required: true
+    ParamType: Query
+    DataType: String
+    client-id: ajaNYGBqSLCeAcvm
+{
+    "client_id": "ajaNYGBqSLCeAcvm",
+    "redirect_uri": "localhost%3A3000%2F"
+
+}
+###
+
+GET / HTTP/1.1
+Host: 127.0.0.1:3000
+###
+
+GET /authorize?client_id=ajaNYGBqSLCeAcvm&redirect_uri=localhost%3A3000%2F&response_type=code&grant_type=authorization_code&state=sdafsdghb&scope=email+openid+profile&nonce=bscsbascbadcsbasccabs HTTP/1.1
+Host: auth.delta.nitt.edu
+
+Request Parameters:
+    Required: true
+    ParamType: Query
+    DataType: String
+    client-id: ajaNYGBqSLCeAcvm
