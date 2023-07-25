@@ -1,17 +1,17 @@
+import TimeDiv from "./Components/TimeDiv";
+import WrapperDiv from "./Components/WrapperDiv";
+import WordsDiv from "./Components/WordsDiv";
+import RestartButton from "./Components/RestartButton";
+import ScoreDiv from "./Components/ScoreDiv";
+
 function App() {
-
-
   return (
     <div className="App">
 
-      <div class="time"></div>
-      <div class="wrapper">
-          <div class="words"></div>
-      </div>
-      <div class="score"></div>
-      <a href="/test" class = "restart-button">
-          <div class="restart-button">Restart</div>
-      </a>
+      <TimeDiv></TimeDiv>
+      <WrapperDiv></WrapperDiv>
+      <ScoreDiv></ScoreDiv>
+      <RestartButton />
     </div>
   );
 }
