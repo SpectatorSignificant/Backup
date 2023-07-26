@@ -1,9 +1,11 @@
 import WordsDiv from "./WordsDiv"
 
-export default function WrapperDiv(){
+function WrapperDiv(){
     return (
         <div className="wrapper">
-            <WordsDiv></WordsDiv>
+            <WordsDiv originalString="hello world"></WordsDiv>
         </div>
     )
 }
+
+export default WrapperDiv;

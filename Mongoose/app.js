@@ -13,7 +13,7 @@ const User = mongoose.model("User", userSchema);
 
 async function run(){
     // await mongoose.connect(url, {useNewUrlParser: true});
-
+    
     const user  = await User.create({username: "user1", password: "pass1"})
     await user.save()
     console.log(user);
