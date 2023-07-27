@@ -1,17 +1,16 @@
 const express = require("express");
-const multer = require("multer");
+// const multer = require("multer");
 const ejs = require("ejs");
-const { uploadFile, getFileStream, unlinkFile, deleteFile } = require(__dirname + "/s3.js");
+const { upload, uploadFile, getFileStream, unlinkFile, deleteFile } = require(__dirname + "/s3.js");
 
 const app = express();
-const upload = multer({dest: "uploads/"});
 
 app.use(express.static("public"));
 app.use(express.json());
 app.set('view engine', 'ejs');
 
 app.get("/", (req, res) => {
-    deleteFile("a141e6c35affba89a8fca28dd7769f96");
+    // deleteFile("a141e6c35affba89a8fca28dd7769f96");
     res.render("index.ejs");
 })
 

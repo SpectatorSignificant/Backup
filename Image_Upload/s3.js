@@ -3,6 +3,9 @@ const dotenv = require("dotenv");
 const fs = require("fs");
 const util = require("util");
 const unlinkFile = util.promisify(fs.unlink);
+const multer = require("multer");
+
+const upload = multer({dest: "uploads/"});
 
 dotenv.config();
 
@@ -59,4 +62,4 @@ function deleteFile(fileKey){ //this is not a promise, remember
     }
 }
 
-module.exports = { uploadFile, getFileStream, unlinkFile, deleteFile}
+module.exports = { upload, uploadFile, getFileStream, unlinkFile, deleteFile}
