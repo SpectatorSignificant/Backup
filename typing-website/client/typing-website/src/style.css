@@ -17,8 +17,23 @@ body{
     color: black;
 }
 
+.logo{
+    display: inline-block;
+    width: 200px;
+}
+
+.container-sign-in {
+    margin: 15px;
+    display: inline;
+    float: right
+}
+
+.wrapper{
+    text-align: center;
+}
+
 .correct{
-    color: green;
+    color: rgb(8, 119, 8);
 }
 
 .wrong {
@@ -26,7 +41,7 @@ body{
 }
 
 .current-word{
-    font-size: x-large;
+    font-size: larger;
 }
 
 .time{
@@ -43,12 +58,13 @@ body{
     text-align: center;
 }
 
-a.restart-button{
+.restart-button a{
     text-decoration: none;
     color: black;
 }
 
-div.restart-button {
+button {
+    background-color: aliceblue;
     width: 100px;
     height: 60px;
     margin: 30px;
@@ -58,6 +74,14 @@ div.restart-button {
     border-radius: 5px;
 }
 
-div.restart-button:hover{
+button:hover{
     background-color: rgb(221, 188, 145);
+    cursor: pointer;
+}
+
+a.icon{
+    color: black;
+}
+i.icon{
+    font-size: 15px;
 }

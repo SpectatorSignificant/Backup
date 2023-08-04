@@ -4,8 +4,10 @@ export default function RestartButton(){
     }
     
     return (
-        <a href="/test" className = "restart-button">
-          <div className="restart-button" onClick={reloadPage}>Restart</div>
-        </a>
+        <button className="restart-button" onClick={reloadPage}>
+            <a href="/test" className = "restart-button">
+            Restart
+            </a>
+        </button>
     )
 }

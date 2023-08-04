@@ -19,6 +19,7 @@ function WordsDiv(props){
         })
     });
     const [charArray, setCharArray] = useState(chars)
+    const [keyPressed, setKeyPressed] = useState(0)
     // console.log("charArray:", charArray)
 
     // const bar = (e) => {
@@ -50,9 +51,42 @@ function WordsDiv(props){
         return originalString.length - index + 1
     }
 
+    const updateWordClass = (index) => {
+        console.log({index})
+        var newCharArray = charArray.map((element, index) => {
+            if (element.class.includes("current-word")){
+                var className = [...(element.class)]
+                for (var i = 0; i < className.length; i++){
+                    if (className[i] === "current-word") className.splice(i, 1)
+                }
+                return {...element, class: className}
+            } else {
+                return element
+            }
+        })
+        // setCharArray(newCharArray)
+    
+        for (var j = index - 1; j >= 0 && newCharArray[j].text !== " "; j--) 
+
+        for (var k = j + 1; k < newCharArray.length && newCharArray[k].text !== " "; k++){
+            var className = [...(newCharArray[k].class)]
+            className.push("current-word")
+            newCharArray[k] = {...(newCharArray[k]), class: className}
+            
+            // console.log({ newCharArray })
+            // charArray[k].classList.add("current-word");
+            // console.log(k)
+        }
+
+        // const newCharArray = charArray.map()
+        // console.log({ newCharArray })
+        setCharArray(newCharArray)
+    }
+
     const handleKeyDown = (e) => {
         if ((e.key.length === 1 || e.key === "Backspace") && (originalIndex < originalString.length)){
-            console.log(originalString[originalIndex])
+            // setKeyPressed(keyPressed + 1)
+            // console.log(originalString[originalIndex])
             if (userIndex === 1){
                 startTime = Date.now();
             } 
@@ -70,7 +104,7 @@ function WordsDiv(props){
                         return element
                     }
                 })
-                console.log("newCharArray:", newCharArray)
+                // console.log("newCharArray:", newCharArray)
                 setCharArray(newCharArray)
                 // charArray[userIndex].class.push()
                 // charArray[userIndex].classList.add("correct");
@@ -84,6 +118,7 @@ function WordsDiv(props){
                     { id: charArray.length, text: e.key, class: ["wrong"]},
                     ...charArray.slice(userIndex)
                 ]
+                console.log({newCharArray})
                 setCharArray(newCharArray)
                 // spanObject = document.createElement("span");
                 // spanObject.textContent = e.key;
@@ -118,9 +153,12 @@ function WordsDiv(props){
                 originalIndex += buffer;
                 userIndex += buffer //+ wrongChars;
                 // userIndex += wrongChars;
+                // console.log({userIndex})
                 wrongChars = 0;
                 userString += e.key;
+                // console.log(spaceWasPressed)
                 spaceWasPressed = true;
+                // console.log(spaceWasPressed)
                 // console.log(buffer, originalIndex, userIndex, wrongChars);
             }
             if (originalIndex >= originalString.length){
@@ -129,24 +167,29 @@ function WordsDiv(props){
                 score = (originalString.length*60)/(5*duration)
                 console.log({duration, score})
             }
+            
         }
-        
+        if (originalIndex < originalString.length) setKeyPressed(keyPressed + 1)
+        // setKeyPressed(keyPressed + 1)
     }
-    
+
     useEffect(() => {
         document.addEventListener("keydown", handleKeyDown)
 
         return () => {
             document.removeEventListener('keydown', handleKeyDown);
-        };
-        
+        }
     }, [charArray])
-    
-    return(
+
+    useEffect(() => {
+        updateWordClass(userIndex)
+    }, [keyPressed])
+
+    return (
         <div className="words">
             {charArray.map(CharSpan)}
         </div>
     )
-}
+    }
 
 export default WordsDiv;
