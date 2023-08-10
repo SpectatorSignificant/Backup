@@ -1,6 +1,6 @@
 function Logo() {
     return (
-        <a class ='logo' href="/"> 
+        <a tabIndex="-1" className ='logo' href="/"> 
             <img src="./logo.svg" alt="logo" />
         </a>
     )

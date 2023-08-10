@@ -22,13 +22,14 @@ body{
     width: 200px;
 }
 
-.container-sign-in {
+.container-sign {
     margin: 15px;
     display: inline;
     float: right
 }
 
 .wrapper{
+    margin-top: 20px;
     text-align: center;
 }
 

@@ -55,23 +55,24 @@ function WordsDiv(props){
         console.log({index})
         var newCharArray = charArray.map((element, index) => {
             if (element.class.includes("current-word")){
-                var className = [...(element.class)]
-                for (var i = 0; i < className.length; i++){
-                    if (className[i] === "current-word") className.splice(i, 1)
+                var newClass = [...(element.class)]
+                for (var i = 0; i < newClass.length; i++){
+                    if (newClass[i] === "current-word") newClass.splice(i, 1)
                 }
-                return {...element, class: className}
+                return {...element, class: newClass}
             } else {
                 return element
             }
         })
         // setCharArray(newCharArray)
     
-        for (var j = index - 1; j >= 0 && newCharArray[j].text !== " "; j--) 
+        for (var j = index - 1; j >= 0 && newCharArray[j].text !== " "; j--) continue
+        // console.log(j)
 
         for (var k = j + 1; k < newCharArray.length && newCharArray[k].text !== " "; k++){
-            var className = [...(newCharArray[k].class)]
-            className.push("current-word")
-            newCharArray[k] = {...(newCharArray[k]), class: className}
+            var newClass = [...(newCharArray[k].class)]
+            newClass.push("current-word")
+            newCharArray[k] = {...(newCharArray[k]), class: newClass}
             
             // console.log({ newCharArray })
             // charArray[k].classList.add("current-word");
@@ -97,9 +98,9 @@ function WordsDiv(props){
                 userString += e.key
                 const newCharArray = charArray.map((element, index) => {
                     if (index === userIndex){
-                        const className = element.class;
-                        className.push("correct")
-                        return {...element, class: className}
+                        const newClass = element.class;
+                        newClass.push("correct")
+                        return {...element, class: newClass}
                     } else {
                         return element
                     }
@@ -184,6 +185,10 @@ function WordsDiv(props){
     useEffect(() => {
         updateWordClass(userIndex)
     }, [keyPressed])
+
+    useEffect(() => {
+        updateWordClass(userIndex)
+    }, [])
 
     return (
         <div className="words">

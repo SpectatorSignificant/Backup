@@ -4,7 +4,7 @@ export default function RestartButton(){
     }
     
     return (
-        <button className="restart-button" onClick={reloadPage}>
+        <button tabIndex={1} className="restart-button" onClick={reloadPage}>
             <a href="/test" className = "restart-button">
             Restart
             </a>

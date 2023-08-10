@@ -23,18 +23,22 @@ Content-Type: application/json
 }
 
 ###
-POST /api/oauth/token/ HTTP/1.1
+POST /api/oauth/token HTTP/1.1
 Host: auth.delta.nitt.edu
-Content-Type: application/json
+Content-Type: application/x-www-form-urlencoded
 
 {
     "client_id": "ajaNYGBqSLCeAcvm",
     "client_secret": "pp181oQ444EOTGAMeJpc8UmfWWKti1Wx",	
     "grant_type": "authorization_code",	
-    "code": "03a2654445775bb956a694fde0cbbe2c6f1b28c3",
+    "code": "57b59bfb80a79a50c27582262c906da0429f7a01",
     "redirect_uri": "http%3A%2F%2Flocalhost%3A3001%2Fauthenticated%2F"
 }
-
-POST /api/resources/user HTTP/1.1
+###
+GET /api/oauth/oidc/key HTTP/1.1
 Host: auth.delta.nitt.edu
+
+###
+POST /user HTTP/1.1
+Host: auth.delta.nitt.edu/api/resources/
 Authorization: Bearer 02f71255ee95a04d6066de3969bb52f466c90572

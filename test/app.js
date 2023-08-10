@@ -33,7 +33,6 @@ async function postJSON(route, data) {
 
 let data = {
     "client_id": "ajaNYGBqSLCeAcvm",
-    "client_secret": "pp181oQ444EOTGAMeJpc8UmfWWKti1Wx",	
     "grant_type": "authorization_code",	
     "code": "ef89c69f3c260dad44f506813e60e8ad64806a0b",
     "redirect_uri": "http%3A%2F%2Flocalhost%3A3000%2Fauthenticated%2F"
