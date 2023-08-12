@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Victor+Mono:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+
+*{
+    font-family: "Inter", 'sans-serif';
+    /* font-size: large; */
+}
+
+.code{
+    background-color: rgb(180, 174, 174);
+    font-family: 'Courier New', Courier, monospace;
+}
+
+code {
+    font-family: "Consolas" ,"courier new";
+    background-color: #f1f1f1;
+    padding: 2px;
+    font-size: 105%;
+}
+
+#user-input{
+    display: block;
+    font-size: large;
+}
+
+#output{
+    display: block;
+    width: 300px;
+    height: 500px;
+}

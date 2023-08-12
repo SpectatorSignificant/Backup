@@ -31,8 +31,8 @@ Content-Type: application/x-www-form-urlencoded
     "client_id": "ajaNYGBqSLCeAcvm",
     "client_secret": "pp181oQ444EOTGAMeJpc8UmfWWKti1Wx",	
     "grant_type": "authorization_code",	
-    "code": "57b59bfb80a79a50c27582262c906da0429f7a01",
-    "redirect_uri": "http%3A%2F%2Flocalhost%3A3001%2Fauthenticated%2F"
+    "code": "722df97d413e8c3cfbbf41c8e09bbd2215cfb35a",
+    "redirect_uri": "http%3A%2F%2Flocalhost%3A3000%2Fauthenticated%2F"
 }
 ###
 GET /api/oauth/oidc/key HTTP/1.1

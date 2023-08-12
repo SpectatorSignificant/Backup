@@ -15,19 +15,12 @@ let params, username, code;
 async function postData(url = "", data = {}) {
     // Default options are marked with *
     const response = await fetch(url, {
-      method: "POST", // *GET, POST, PUT, DELETE, etc.
-    //   mode: "cors", // no-cors, *cors, same-origin
-    //   cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-    //   credentials: "same-origin", // include, *same-origin, omit
       headers: {
         // "Content-Type": "application/json",
         'Content-Type': 'application/x-www-form-urlencoded',
       },
-    //   redirect: "follow", // manual, *follow, error
-    //   referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-      body: JSON.stringify(data), // body data type must match "Content-Type" header
     });
-    return response; // parses JSON response into native JavaScript objects
+    return response; 
 }
   
 // postData("https://auth.delta.nitt.edu", {
@@ -58,6 +51,7 @@ app.get("/", (req, res) => {
 
 app.get("/authenticated", (req, res) => {
     code = req.query.code
+    console.log({code})
     res.send("User is authenticated");
 })
 
@@ -67,18 +61,18 @@ app.get("/token", (req, res) => {
     params.client_secret = process.env.CLIENT_SECRET;
     params.code = code;
     params.grant_type = "authorization_code"
-    params.redirect_uri = "http%3A%2F%2Flocalhost%3A3000%2Fauthenticated";
+    params.redirect_uri = "http://localhost:3000/authenticated";
     // username = req.query.username;
     params.state = username;
-    url = "https://auth.delta.nitt.edu/api?";
-    for (var i = 0; i < Object.keys(params).length; i++){
-        url += Object.keys(params)[i] + "=";
-        url += params[Object.keys(params)[i]] + "&";
-    }
+    // url = "https://auth.delta.nitt.edu/api/oauth?";
+    // for (var i = 0; i < Object.keys(params).length; i++){
+    //     url += Object.keys(params)[i] + "=";
+    //     url += params[Object.keys(params)[i]] + "&";
+    // }
+    // console.log({url})
+    console.log({params})
+    postData("https://auth.delta.nitt.edu/api/oauth/token/", params)
     res.redirect(url);
-    postData("https://auth.delta.nitt.edu/api/oauth/token/", {
-
-    })
 })
 
 app.listen(3000, () => {
