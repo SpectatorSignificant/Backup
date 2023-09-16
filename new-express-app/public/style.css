@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Victor+Mono:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+
+*{
+    font-family: "Inter", 'sans-serif';
+    font-size: medium;
+    margin: 4px 0 4px 0;
+}
+
+body{
+    background-color: antiquewhite;
+    margin: 0;
+}
+
+div{
+
+    border: solid 1px black;
+}
+
+ul{
+    list-style-type: none;
+}
+  
+  #main-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .bullet {
+    cursor: pointer;
+    user-select: none; 
+  }
+  
+  .bullet::before {
+    content: "\25B6";
+    color: black;
+    display: inline-block;
+    margin-right: 6px;
+  }
+  
+  .bullet-down::before {
+    transform: rotate(90deg);
+  }
+  
+  .nested {
+    display: none;
+  }
+  
+  .active {
+    display: block;
+  }

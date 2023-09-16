@@ -1,0 +1,124 @@
+const orderBox = document.querySelector(".order")
+const canvas = document.querySelector("canvas");
+const addButtons = document.querySelectorAll(".add");
+const removeButtons = document.querySelectorAll(".remove");
+const logo = document.querySelector("img");
+
+let c = canvas.getContext("2d");
+
+const img = new Image();
+img.src = "./img/pizza.png";
+
+const toppingImg = new Image();
+
+canvas.width = 300;
+canvas.height = 300;
+
+let positions = {"olives": [], "mushroom": [], "onions": [], "tomato": [], "pepperoni": []};
+let order = {"olives": 0, "mushroom": 0, "onions": 0, "tomato": 0, "pepperoni": 0};
+let buttonClicked = false;
+
+for (let i = 0; i < 4; i++){
+
+    const j = Object.keys(positions)[Math.floor(Math.random()*Object.keys(positions).length)];
+
+    if (order[j]== 0){
+
+        order[j] = Math.ceil(Math.random()*4);
+
+    }
+}
+
+let text = "Drag and drop the buttons on the pizza to add these components\n";
+
+Object.keys(order).forEach((key) => {
+
+
+    if (order[key] > 0){
+
+        text += `${key}: ${order[key]}\n`
+    }
+})
+
+orderBox.innerText = text;
+
+const handleMouseUp = (e) => {
+
+    if (buttonClicked){
+
+        const key = buttonClicked;
+
+        positions[key]= [...positions[key], [e.x, e.y]];
+
+        buttonClicked = false;
+
+    }
+} 
+
+canvas.addEventListener("mouseup", handleMouseUp)
+
+document.addEventListener("mouseup", (e) => {
+
+    if (!canvas.contains(e.target)) {
+
+        buttonClicked = false;
+
+    }
+
+})
+
+addButtons.forEach((button) => {
+
+    button.onmousedown = (e) => {
+
+        buttonClicked = e.target.name;
+
+    }
+})
+
+removeButtons.forEach((button) => {
+
+    button.onmousedown = (e) => {
+
+        positions[button.name].pop()
+        
+    }
+})
+
+function animate(){
+
+    requestAnimationFrame(animate);
+
+    c.drawImage(img, 0, 0, 300, 300);
+    
+    for (let i = 0; i < Object.keys(positions).length; i++){
+
+        const topping = Object.keys(positions)[i]
+
+        toppingImg.src = `./img/${topping}.png`;
+
+        positions[topping].forEach((position) => {
+
+            c.drawImage(toppingImg, position[0], position[1], 50, 50);
+
+        })
+    }
+
+    const keys = Object.keys(order);
+
+    let correct = true;
+
+    for (let i = 0; i < keys.length; i++){
+
+        if (order[keys[i]] != positions[keys[i]].length) correct = false
+
+    }
+
+    if (correct){
+
+        orderBox.innerText = `Order completed !!`
+
+    }
+}
+
+animate();

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    
+    <title>Pizza</title>
+</head>
+<body>
+    <canvas></canvas>
+    
+    <div class="order"></div>
+    <button type="button" class="add" name="olives">Olives</button>
+    <img src="./img/olives.png" alt="olives" width="50">
+    <button type="button" class="remove" name="olives">Remove</button>
+    <br>
+    <button type="button" class="add" name="tomato">Tomato</button>
+    <img src="./img/tomato.png" alt="tomato" width="50">
+    <button type="button" class="remove" name="tomato">Remove</button>
+    <br>
+    <button type="button" class="add" name="mushroom">Mushroom</button>
+    <img src="./img/mushroom.png" alt="mushroom" width="50">
+    <button type="button" class="remove" name="mushroom">Remove</button>
+    <br>
+    <button type="button" class="add" name="onions">Onion</button>
+    <img src="./img/onions.png" alt="onions" width="50">
+    <button type="button" class="remove" name="onions">Remove</button>
+    <br>
+    <button type="button" class="add" name="pepperoni">Pepperoni</button>
+    <img src="./img/pepperoni.png" alt="pepperoni" width="50">
+    <button type="button" class="remove" name="pepperoni">Remove</button>
+
+    <script src="script.js"></script>
+</body>
+</html>

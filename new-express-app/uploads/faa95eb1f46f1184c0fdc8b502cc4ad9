@@ -1,0 +1,26 @@
+
+*{
+    font-family: "Inter", 'sans-serif';
+    font-size: medium;
+    margin: 4px 0 4px 0;
+}
+
+body{
+    background-color: antiquewhite;
+    margin: 0;
+}
+
+canvas{
+    display: block;
+}
+
+button{
+    color: black;
+    text-decoration: none;
+    border: solid 1px black;
+}
+
+button:hover{
+    background-color: #DDBC91;
+    cursor: default;
+}

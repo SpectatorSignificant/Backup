@@ -2,7 +2,8 @@
   "name": "new-express-app",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,10 +13,12 @@
   "dependencies": {
     "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
+    "cssjson": "^2.1.3",
     "dotenv": "^16.3.1",
     "ejs": "^3.1.9",
     "express": "^4.18.2",
     "fs": "^0.0.1-security",
+    "jotform-css.js": "^1.0.1",
     "mongoose": "^7.4.3",
     "multer": "^1.4.5-lts.1",
     "redis": "^4.6.7",
